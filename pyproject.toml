@@ -6,7 +6,10 @@ authors = ["melaniefayne <melaniefayne33@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "^3.9"
+ultralytics = "^8.3.40"
+opencv-python = "^4.8.0.76"
+supervision = "0.24.0"
 
 
 [build-system]

@@ -1,15 +1,24 @@
 import argparse
-from typing import Dict, Iterable, List, Optional, Set
-
+ # Parsing command-line arguments
 import cv2
-import numpy as np
+# Reading and writing video files.
+# Displaying video frames in real-time (cv2.imshow).
+# Drawing on frames.
 from tqdm import tqdm
+# Tracking the progress of video frame processing.
 from ultralytics import YOLO
-
+# Loads YOLO (a pretrained object detection model)
 import supervision as sv
+# Handling video frames.
+# Annotating frames with bounding boxes, labels, and traces.
+# Defining and working with polygonal zones.
+
+from typing import Dict, Iterable, List, Optional, Set
+import numpy as np
 
 COLORS = sv.ColorPalette.from_hex(["#E6194B", "#3CB44B", "#FFE119", "#3C76D1"])
 
+# Polygon co-ordinates that mark the roads that lead into roundabout
 ZONE_IN_POLYGONS = [
     np.array([[592, 282], [900, 282], [900, 82], [592, 82]]),
     np.array([[950, 860], [1250, 860], [1250, 1060], [950, 1060]]),
@@ -17,6 +26,7 @@ ZONE_IN_POLYGONS = [
     np.array([[1250, 282], [1250, 530], [1450, 530], [1450, 282]]),
 ]
 
+# Polygon co-ordinates that mark the roads that lead out of the roundabout
 ZONE_OUT_POLYGONS = [
     np.array([[950, 282], [1250, 282], [1250, 82], [950, 82]]),
     np.array([[592, 860], [900, 860], [900, 1060], [592, 1060]]),
@@ -55,6 +65,10 @@ class DetectionsManager:
             detections_all.class_id = np.array([], dtype=int)
         return detections_all[detections_all.class_id != -1]
 
+
+# PolygonZone:
+# A class from the supervision library that represents a polygon and provides utilities for detecting whether objects are inside it.
+# The triggering_anchors parameter specifies which part of the detected object's bounding box is checked for containment. Here, it's set to CENTER, meaning the center point of the bounding box must fall inside the polygon to trigger it.
 
 def initiate_polygon_zones(
     polygons: List[np.ndarray],

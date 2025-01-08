@@ -3,6 +3,3 @@ venv/
 *.pth
 *.mp4
 *.mov
-*.png
-*.jpg
-*.jpeg

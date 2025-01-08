@@ -28,3 +28,9 @@ supervision package for multiple tasks such as tracking, annotations, etc.
 - Run main.ipynb file
 
 <br>
+
+What's remaining
+- Understand YOLO parameters & performance
+- Try derive stats from it
+- Do it with a Kenyan Video
+- Do it for a straight road

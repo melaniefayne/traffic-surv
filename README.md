@@ -12,8 +12,9 @@
   - What is the busiest outZone? (could allow us to predict heavy traffic on the outZone road).
   - What is the in to out flow for each inZone? (allow us to see what route most drivers from this path use the roundabout for, give insight for alternative routing).
 
-<img src="assets/frame.png" alt="Description" width="500">
-
+<video width="320" height="240" controls>
+  <source src="output/traffic2/result.mp4" type="video/mp4">
+</video>
 
 ## Zone Initialization
 
